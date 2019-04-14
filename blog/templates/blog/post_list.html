@@ -2,13 +2,21 @@
 
 {% block content %}
   {% for post in posts %}
-    <div class="post">
-      <div class="date">
-          <p>Опубликовано: {{ post.published_date }}</p>
-      </div>
-      <a href="/blog/{{ post.slug }}/"><h1>{{ post.title }}</h1></a>
-      <p>{{ post.preview|linebreaksbr }}</p>
-      <p>{{ post.content|safe }}</p>
+
+
+  <div class="card text-center" style="margin-bottom: 10px;">
+    <div class="card-header">
+      {{ post.theme.name }}
     </div>
+    <div class="card-body">
+      <h2 class="card-title">{{ post.title }}</h2>
+      <p class="card-text">{{ post.preview|linebreaksbr }}</p>
+      <a href="/blog/{{ post.slug }}/" class="btn btn-primary">Подробнее...</a>
+    </div>
+    <div class="card-footer text-muted">
+      {{ post.published_date }}
+    </div>
+  </div>
+
   {% endfor %}
 {% endblock %}

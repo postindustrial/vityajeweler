@@ -3,18 +3,37 @@
 <html>
   <head>
     <title>ВИТЯ ЮВЕЛИР ОФИЦИАЛЬНЫЙ САЙТ</title>
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-    <link href="https://fonts.googleapis.com/css?family=Merriweather&subset=latin,cyrillic" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!--    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather&subset=latin,cyrillic" rel="stylesheet" type="text/css">  -->
   </head>
   <body>
-    <div class="page-header">
-      <h1><a href="/">ВИТЯ Ю ВЕ ЛИР</a></h1>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #aa98a9">
+      <a class="navbar-brand" href="/"><center>ВИТЯ ЮВЕЛИР</center></a>
+
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group mr-2" role="group" aria-label="First group">
+          <button type="button" class="btn btn-primary">IT</button>
+          <button type="button" class="btn btn-primary">Музыка</button>
+          <button type="button" class="btn btn-primary">Игры</button>
+          <button type="button" class="btn btn-primary">Something</button>
+        </div>
+        <div class="btn-group mr-2" role="group" aria-label="Second group">
+          <button type="button" class="btn btn-success">Площадки в РСЯ</button>
+          <button type="button" class="btn btn-success">Сосификатор</button>
+          <button type="button" class="btn btn-success">Ну да</button>
+        </div>
+        <div class="btn-group" role="group" aria-label="Third group">
+          <button type="button" class="btn btn-dark">Пока</button>
+        </div>
+      </div>
+    </nav>
+    <div class="container" style="height: 80px;">
+      <center>АХА СПИЙМАВ НА ЮВЕЛИРА</center>
     </div>
     <div class="content container">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
           {% block content %}
           {% endblock %}
         </div>
