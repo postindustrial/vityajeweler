@@ -1,9 +1,11 @@
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
+from ckeditor.fields import RichTextField
 
 class Theme(models.Model):
     name = models.CharField(max_length=200)
+    slink = models.CharField(max_length=200, default="slink")
 
     def __str__(self):
         return self.name
@@ -12,10 +14,9 @@ class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     theme = models.ManyToManyField(Theme, help_text="Выберите тему этой статьи")
     title = models.CharField(max_length=200)
-    slink = models.CharField(max_length=200, default="slink")
+    slug = models.SlugField(max_length=50, unique=True, default="slug")
     preview = models.TextField(default="Еще одна отличная статья...")
-
-    text = models.TextField()
+    content = RichTextField(default="content")
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 

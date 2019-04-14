@@ -6,8 +6,9 @@
       <div class="date">
           <p>Опубликовано: {{ post.published_date }}</p>
       </div>
-      <h1>{{ post.title }}</h1>
+      <a href="/blog/{{ post.slug }}/"><h1>{{ post.title }}</h1></a>
       <p>{{ post.preview|linebreaksbr }}</p>
+      <p>{{ post.content|safe }}</p>
     </div>
   {% endfor %}
 {% endblock %}
