@@ -10,7 +10,11 @@ class Theme(models.Model):
 
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    theme = models.ManyToManyField(Theme, help_text="Выберите тему этой статьи")
     title = models.CharField(max_length=200)
+    slink = models.CharField(max_length=200, default="slink")
+    preview = models.TextField(default="Еще одна отличная статья...")
+
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
