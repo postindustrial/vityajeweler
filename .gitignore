@@ -2,7 +2,7 @@
 *~
 __pycache__
 test
-vityaenv
+/vityaenv
 db.sqlite3
 /static
 .DS_Store
