@@ -9,7 +9,7 @@
             </div>
         {% endif %}
         <h1>{{ post.title }}</h1>
-        <p>{{ post.text|linebreaksbr }}</p>
+        <p>{{ post.content|safe }}</p>
     </div>
     <div>Прочитал? <a href="/">Вернись обратно!</a></div>
 {% endblock %}

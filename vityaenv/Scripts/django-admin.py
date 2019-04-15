@@ -1,4 +1,4 @@
-#!c:\vityajeweler\vityaenv\scripts\python.exe
+#!C:\vityajeweler\vityaenv\Scripts\python.exe
 from django.core import management
 
 if __name__ == "__main__":
