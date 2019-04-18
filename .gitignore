@@ -4,5 +4,4 @@ __pycache__
 test
 /vityaenv
 db.sqlite3
-/static
 .DS_Store

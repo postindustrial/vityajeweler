@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'places',
     'ckeditor',
 ]
 
@@ -56,7 +57,11 @@ ROOT_URLCONF = 'vityasite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            'templates/',
+            'blog/templates/blog/',
+            'places/templates/places/',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
