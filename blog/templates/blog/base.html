@@ -8,9 +8,10 @@
     <link href="https://fonts.googleapis.com/css?family=Merriweather&subset=latin,cyrillic" rel="stylesheet" type="text/css">  -->
   </head>
   <body>
-    <div class="row" style="background-color: #c53dff">
-      <div class="col-md-1 d-inline" style="max-width: 124px; margin: 0 10px 0 10px;"><a class="d-inline" href="/"><img src="{% static 'images/logo_VY_2.svg' %}" width="124px" height="124px" /></a></div>
-    <div class="col-md d-inline"><nav class="navbar navbar-expand-lg navbar-light">
+    <div class="row" style="border-bottom: 5px #777 solid; background-color: #333">
+      <div class="col-md-1 d-inline" style="max-width: 108px; margin: 0 10px 0 10px;"><a class="d-inline" href="/"><img src="{% static 'images/logo_VY_2.svg' %}" width="108px" height="108px" /></a></div>
+    <div class="col-md d-inline">
+      <nav class="navbar navbar-expand-lg navbar-light">
 
 
       <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
@@ -31,7 +32,7 @@
       </div>
     </nav>
 
-    <nav class="navbar">
+    <nav class="navbar" style="height: 54px;">
       <form class="form-inline">
         <div class="input-group">
           <div class="input-group-prepend">
@@ -42,25 +43,29 @@
       </form>
     </nav>
 </div>
-<div class="col-md-1 d-inline" style="max-width: 124px; margin: 0 35px 0 10px;"><a class="d-inline" href="/"><img src="{% static 'images/logo_VY_2.svg' %}" width="124px" height="124px" /></a></div>
+<div class="col-md-1 d-inline" style="max-width: 108px; margin: 0 35px 0 10px;"><a class="d-inline" href="/"><img src="{% static 'images/logo_VY_3.svg' %}" width="108px" height="108px" /></a></div>
 </div>
 
 
     <div class="content container-fluid">
       <div class="row" style="height: 40px;">
+        <div class="col-md-2" style="border-right: 5px #777 solid; background-color: #333">
+        </div>
+        <div class="col-md-8" style="background-color: #aaa;">
+        </div>
+        <div class="col-md-2" style="border-left: 5px #777 solid; background-color: #333">
+        </div>
       </div>
       <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-2" style="border-right: 5px #777 solid; background-color: #333">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8" style="background-color: #aaa;">
           {% block content %}
           {% endblock %}
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2" style="border-left: 5px #777 solid; background-color: #333">
             {% include "./banners.html" %}
         </div>
-      </div>
-      <div class="row" style="height: 40px;">
       </div>
       <div class="row" style="height: 100px; background-color: #000000; border: 5px solid #fc05f0;">
       </div>
