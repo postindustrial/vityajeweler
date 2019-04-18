@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from .models import Theme
+from .models import Theme, Place, Company
 from django.http import Http404
 from django.views.generic import TemplateView, ListView, DetailView
 # import ipdb
@@ -9,9 +9,9 @@ from django.views.generic import TemplateView, ListView, DetailView
 
 
 # вывод списка постов
-class ThemeList(ListView):
-    model = Theme
-    context_object_name = 'themes'
+class PlaceList(ListView):
+    model = Place
+    context_object_name = 'places'
 
 # вывод постов по тегу
 #class TaggedList(DetailView):

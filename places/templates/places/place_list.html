@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Площадка</th>
+        <th scope="col">Поставщик</th>
+        <th scope="col">Тематика</th>
+        <th scope="col">Описание</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for place in places %}
+      <tr>
+        <th scope="row">{{ place.name }}</th>
+        <td>
+          {% for company in place.company.all %}
+            #{{ company.name }}
+          {% endfor %}
+        </td>
+        <td>
+          {% for theme in place.theme.all %}
+            #{{ theme.name }}
+          {% endfor %}
+        </td>
+        <td>{{ place.preview|linebreaksbr }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}
