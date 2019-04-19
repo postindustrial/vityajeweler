@@ -3,7 +3,7 @@ from django.utils import timezone
 from .models import Theme, Place, Company
 from django.http import Http404
 from django.views.generic import TemplateView, ListView, DetailView
-# import ipdb
+#import ipdb
 
 # Create your views here.
 
@@ -11,35 +11,38 @@ from django.views.generic import TemplateView, ListView, DetailView
 # вывод списка постов
 class PlaceList(ListView):
     model = Place
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['places'] = Place.objects.all()
+        return context
+
+class ThemeList(ListView):
+    model = Place
     context_object_name = 'places'
+    template_name = 'place_list.html'
 
-# вывод постов по тегу
-#class TaggedList(DetailView):
-#    model = Post
+    def get_queryset(self):
+        self.MyTheme = get_object_or_404(Theme, slug=self.kwargs['slug'])
+        return Place.objects.filter(theme=self.MyTheme)
 
-#    def get_context_data(self, slug, **kwargs):
-        # Call the base implementation first to get a context
-#        context = super().get_context_data(**kwargs)
-        # Add in a QuerySet of all the books
-#        theme = Theme.objects.get(slug=slug)
-#        context['posts'] = Post.objects.filter(theme=theme).order_by('-published_date')
-#        return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
 
+class CompanyList(ListView):
+    model = Place
+    context_object_name = 'places'
+    template_name = 'place_list.html'
 
-#def post_list(request):
-#    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-#    return render(request, 'places/post_list.html', {'posts': posts})
+    def get_queryset(self):
+        self.MyCompany = get_object_or_404(Company, slug=self.kwargs['slug'])
+        return Place.objects.filter(company=self.MyCompany)
 
-#def tagged_post_list(request, slug):
-    # ipdb.set_trace();
-#    try:
-#        theme = Theme.objects.get(slug=slug)
-#    except Theme.DoesNotExist:
-#        raise Http404('not found')
+class PlaceDetail(DetailView):
+    model = Place
+    context_object_name = 'place'
 
-#    posts = Post.objects.filter(theme=theme).order_by('-published_date')
-#    return render(request, 'blog/post_list.html', {'posts': posts})
-
-#def post_detail(request, slug):
-#    post = get_object_or_404(Post, slug=slug)
-#    return render(request, 'blog/post_detail.html', {'post': post})
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context

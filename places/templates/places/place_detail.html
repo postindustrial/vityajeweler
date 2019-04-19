@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="post">
+        <h1>{{ place.name }}</h1>
+        <p>{{ place.content|safe }}</p>
+    </div>
+    <div>Прочитал? <a href="/places/">Вернись обратно!</a></div>
+{% endblock %}

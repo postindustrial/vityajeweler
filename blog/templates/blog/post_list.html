@@ -7,13 +7,13 @@
   <div class="card text-center" style="margin-bottom: 10px;">
     <div class="card-header">
     {% for theme in post.theme.all %}
-        <a href="/tag/{{ theme.slug }}/">#{{ theme.name }} </a>
+        <a href="/blog/tag/{{ theme.slug }}/">#{{ theme.name }} </a>
     {% endfor %}
     </div>
     <div class="card-body">
       <h2 class="card-title">{{ post.name }}</h2>
       <p class="card-text">{{ post.preview|linebreaksbr }}</p>
-      <a href="/blog/{{ post.slug }}/" class="btn btn-primary">Подробнее...</a>
+      <a href="/blog/post/{{ post.slug }}/" class="btn btn-primary">Подробнее...</a>
     </div>
     <div class="card-footer text-muted">
       {{ post.published_date }}

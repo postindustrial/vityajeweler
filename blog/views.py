@@ -14,32 +14,34 @@ class PostList(ListView):
     context_object_name = 'posts'
 
 # вывод постов по тегу
-class TaggedList(DetailView):
+class TaggedList(ListView):
+    model = Post
+    context_object_name = 'posts'
+    template = 'post_list.html'
+
+    def get_queryset(self):
+        self.MyTheme = get_object_or_404(Theme, slug=self.kwargs['slug'])
+        return Post.objects.filter(theme=self.MyTheme)
+
+class PostDetail(DetailView):
     model = Post
 
-    def get_context_data(self, slug, **kwargs):
-        # Call the base implementation first to get a context
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # Add in a QuerySet of all the books
-        theme = Theme.objects.get(slug=slug)
-        context['posts'] = Post.objects.filter(theme=theme).order_by('-published_date')
         return context
 
 
-def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-    return render(request, 'blog/post_list.html', {'posts': posts})
 
-def tagged_post_list(request, slug):
+#def tagged_post_list(request, slug):
     # ipdb.set_trace();
-    try:
-        theme = Theme.objects.get(slug=slug)
-    except Theme.DoesNotExist:
-        raise Http404('not found')
+#    try:
+#        theme = Theme.objects.get(slug=slug)
+#    except Theme.DoesNotExist:
+#        raise Http404('not found')
 
-    posts = Post.objects.filter(theme=theme).order_by('-published_date')
-    return render(request, 'blog/post_list.html', {'posts': posts})
+#    posts = Post.objects.filter(theme=theme).order_by('-published_date')
+#    return render(request, 'blog/post_list.html', {'posts': posts})
 
-def post_detail(request, slug):
-    post = get_object_or_404(Post, slug=slug)
-    return render(request, 'blog/post_detail.html', {'post': post})
+#def post_detail(request, slug):
+#    post = get_object_or_404(Post, slug=slug)
+#    return render(request, 'blog/post_detail.html', {'post': post})
