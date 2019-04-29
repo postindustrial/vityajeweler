@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="post">
+        <p>{{ content|safe }}</p>
+    </div>
+    <div>Прочитал? <a href="/">Вернись обратно!</a></div>
+{% endblock %}

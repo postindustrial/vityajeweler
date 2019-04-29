@@ -14,6 +14,12 @@ class Page(models.Model):
     seo_keywords = models.CharField(max_length=200, blank=True, null=True, verbose_name="Тег Keywords")
     slug = models.SlugField(max_length=50, unique=True, default="slug", verbose_name="URL")
 
+class RealPage(Page):
+    content = RichTextField(default="content", verbose_name="Содержимое страницы")
+
+    def __str__(self):
+        return self.seo_title
+
 class Theme(Page):
     name = models.CharField(max_length=200)
     preview = models.TextField(default="Очередная ненужная тематика...", verbose_name="Краткое описание тематики")

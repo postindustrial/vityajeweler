@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'basesite',
     'blog',
     'places',
     'ckeditor',
@@ -61,6 +62,7 @@ TEMPLATES = [
             'templates/',
             'blog/templates/blog/',
             'places/templates/places/',
+            'basesite/templates/basesite/',
         ],
         'APP_DIRS': True,
         'OPTIONS': {

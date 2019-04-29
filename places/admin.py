@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import Theme, Company, Place
+from .models import RealPage, Theme, Company, Place
 
+admin.site.register(RealPage)
 admin.site.register(Theme)
 admin.site.register(Company)
 admin.site.register(Place)

@@ -2,12 +2,23 @@
 
 <html>
   <head>
-    <title>ВИТЯ ЮВЕЛИР ОФИЦИАЛЬНЫЙ САЙТ</title>
+    <title>
+      {% if seo_title %}
+        {{ seo_title }}
+      {% endif %}
+      | ВИТЯ ЮВЕЛИР</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content="
+    {% if seo_description %}
+      {{ seo_description }}
+    {% endif %}
+    " />
+    <meta name="keywords" content="
+    {% if seo_keywords %}
+      {{ seo_keywords }}
+    {% endif %}
+    " />
   </head>
   <body>
     <div class="row" style="border-bottom: 5px #777 solid; background-color: #333">
@@ -62,6 +73,11 @@
         <div class="col-md-2" style="border-right: 5px #777 solid; background-color: #333">
         </div>
         <div class="col-md-8" style="background-color: #aaa;">
+          <h1>
+            {% if seo_h1 %}
+              {{ seo_h1 }}
+            {% endif %}
+          </h1>
           {% block content %}
           {% endblock %}
         </div>
@@ -73,5 +89,12 @@
     <footer class="footer" style="padding: 0;">
       <img width="100%" src="{% static '/images/footer.svg' %}" />
     </footer>
+
+{% if body_bottom_banners %}{% for banner in body_bottom_banners %}
+
+{{ banner.content|safe }}
+
+{% endfor %}{% endif %}
+
   </body>
 </html>

@@ -17,6 +17,12 @@ class Page(models.Model):
     def __str__(self):
         return self.name
 
+class RealPage(Page):
+    content = RichTextField(default="content", verbose_name="Содержимое страницы")
+
+    def __str__(self):
+        return self.seo_title
+
 class Theme(Page):
     name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=50, unique=True, default="slug", verbose_name="URL")
